@@ -57,7 +57,25 @@
     <Content Include="Data\Materials\Jupiter.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Data\Materials\Soleil.xml">
+    <Content Include="Data\Materials\Neptune.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Uranus.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Mars.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Venus.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Saturn.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Mercury.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Data\Materials\Sun.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Data\Materials\Moon.xml">
@@ -78,12 +96,12 @@
     <Content Include="Data\Textures\Jupiter.jpg" />
     <Content Include="Data\Textures\License.txt" />
     <Content Include="Data\Textures\Mars.jpg" />
-    <Content Include="Data\Textures\Mercure.jpg" />
+    <Content Include="Data\Textures\Mercury.jpg" />
     <Content Include="Data\Textures\Moon.jpg" />
     <Content Include="Data\Textures\Moon_NormalsMap.png" />
     <Content Include="Data\Textures\Neptune.jpg" />
-    <Content Include="Data\Textures\Saturne.jpg" />
-    <Content Include="Data\Textures\Soleil.jpg" />
+    <Content Include="Data\Textures\Saturn.jpg" />
+    <Content Include="Data\Textures\Sun.jpg" />
     <Content Include="Data\Textures\Space.png" />
     <Content Include="Data\Textures\Uranus.jpg" />
     <Content Include="Data\Textures\Venus.jpg" />

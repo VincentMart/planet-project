@@ -6,8 +6,8 @@
 	
 	<!--put Earth_Clouds and Earth_Night textures to the free texture units-->
 	<!--let us take the 'environment' and 'emissive' ones-->
-	<texture unit="environment" name="Textures/Earth_Clouds.jpg" />
-	<texture unit="emissive" name="Textures/Earth_Night.jpg" />
+	<!--<texture unit="environment" name="Textures/Earth_Clouds.jpg" />-->
+	<!--<texture unit="emissive" name="Textures/Earth_Night.jpg" />-->
 	
 	<!--parameters-->
 	<parameter name="SpecColor" value="0.2 0.2 0.2 0.7" />
