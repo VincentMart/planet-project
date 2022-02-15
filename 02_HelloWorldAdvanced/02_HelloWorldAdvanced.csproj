@@ -54,6 +54,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\Materials\Jupiter.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Data\Materials\Soleil.xml">
       <SubType>Designer</SubType>
     </Content>
