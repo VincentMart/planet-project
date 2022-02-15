@@ -1,4 +1,5 @@
 ﻿using System;
+using _07_HelloWorldWithCustomShaders.Modele;
 using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Urho;
@@ -6,6 +7,8 @@ using Urho.Actions;
 using Urho.SharpReality;
 using Urho.Shapes;
 using Urho.Resources;
+using System.IO;
+using _07_HelloWorldWithCustomShaders.View;
 
 namespace _07_HelloWorldWithCustomShaders
 {
@@ -40,24 +43,36 @@ namespace _07_HelloWorldWithCustomShaders
 			Log.LogLevel = LogLevel.Warning;
 			Log.LogMessage += l => { Debug.WriteLine(l.Level + ":  " + l.Message); };
 
+			DirectionalLight.Brightness = 0;
+			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));
+
+
 			// Create a node for the Sun
 			sunNode = Scene.CreateChild();
 			sunNode.Position = new Vector3(0, 0, 1.5f);
-			sunNode.SetScale(0.4f);
-
-			DirectionalLight.Brightness = 0;
-			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));            //-1, 0, 0.5f
+			sunNode.SetScale(0.4f);     
 
 			var sun = sunNode.CreateComponent<Sphere>();
-			sunMaterial = ResourceCache.GetMaterial("Materials/Soleil.xml");
-			sun.SetMaterial(sunMaterial);
+			sun.SetMaterial(ResourceCache.GetMaterial("Materials/Sun.xml"));
+
+			Planet earth = new Planet(0.5f, 1.5f, 0, 0, 1f, -4);
+			Planet moon = new Planet(0.2f, 1f, 0, 0, 1.5f, 10);
+			earth = (Planet)sunNode.CreateChild();
+			moon = (Planet)earth.CreateChild();
+			PlanetView earthView = (PlanetView)earth.CreateComponent<Sphere>();
+			earthView.Material = ResourceCache.GetMaterial("Materials/Earth.xml");
+			PlanetView moonView = (PlanetView)moon.CreateComponent<Sphere>();
+			moonView.Material = ResourceCache.GetMaterial("Materials/Moon.xml");
+			LunarSystem lunarSystem = new LunarSystem(earth, moon);
+			lunarSystem.rotation();
 
 			/*var moonNode = sunNode.CreateChild();
 			moonNode.SetScale(0.006f);
 			moonNode.Position = new Vector3(1.2f, 0, 0);
 			var moon = moonNode.CreateComponent<Sphere>();
 			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));*/
-
+			
+			
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
 			baseMercury.SetScale(0.99f);
@@ -97,29 +112,22 @@ namespace _07_HelloWorldWithCustomShaders
 			var jupiter = jupiterNode.CreateComponent<Sphere>();
 			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
-			// HolographicDisplay api is available in >=10.0.15063
-			// var display = Windows.Graphics.Holographic.HolographicDisplay.GetDefault();
-			// bool isHoloLens = display != null && !display.IsOpaque;
-			bool isHoloLens = true;
+			
 
-			if (!isHoloLens)
-			{
-				//Since the display is opaque - we can display a skybox with stars
-				var skyboxNode = Scene.CreateChild();
-				skyboxNode.SetScale(100);
-				var skybox = skyboxNode.CreateComponent<Skybox>();
-				skybox.Model = CoreAssets.Models.Box;
-				//Skybox is usally a 6 textures joined together, see FeatureSamples/Core/23_Water sample
-				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));
-			}
+			var skyboxNode = Scene.CreateChild();
+			skyboxNode.SetScale(100);
+			var skybox = skyboxNode.CreateComponent<Skybox>();
+			skybox.Model = CoreAssets.Models.Box;
+			//Skybox is usally a 6 textures joined together, see FeatureSamples/Core/23_Water sample
+			skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));
 
 			// Run a few actions to spin the Earth, the Moon and the clouds.
-			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			//sunNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
 			//jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -10, deltaAngleZ: 0)));
 
 
 
-			baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -40, deltaAngleZ: 0)));
+			//baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -40, deltaAngleZ: 0)));
 		}
 
 		protected override void OnUpdate(float timeStep)
