@@ -17674,12 +17674,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\saaurelle\\Source\\Repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
+      "projectUniqueName": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
       "projectName": "02_HelloWorldAdvanced",
-      "projectPath": "C:\\Users\\saaurelle\\Source\\Repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
-      "projectJsonPath": "C:\\Users\\saaurelle\\Source\\Repos\\planet-project\\02_HelloWorldAdvanced\\project.json",
+      "projectPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
+      "projectJsonPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\project.json",
       "packagesPath": "C:\\Users\\saaurelle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\saaurelle\\Source\\Repos\\planet-project\\02_HelloWorldAdvanced\\obj\\",
+      "outputPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\obj\\",
       "projectStyle": "ProjectJson",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
