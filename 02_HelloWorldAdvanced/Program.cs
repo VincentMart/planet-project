@@ -108,11 +108,11 @@ namespace _07_HelloWorldWithCustomShaders
 			var baseJ = baseJupiter.CreateComponent<Sphere>();
 			baseJ.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
-			var earthNode = sunNode.CreateChild();
-			earthNode.SetScale(1f);
-			earthNode.Position = new Vector3(2f, 0, 0);
-			var earth = earthNode.CreateComponent<Sphere>();
-			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			var jupiterNode = sunNode.CreateChild();
+			jupiterNode.SetScale(1f);
+			jupiterNode.Position = new Vector3(2f, 0, 0);
+			var jupiter = earthNode.CreateComponent<Sphere>();
+			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
 			// HolographicDisplay api is available in >=10.0.15063
 			// var display = Windows.Graphics.Holographic.HolographicDisplay.GetDefault();
