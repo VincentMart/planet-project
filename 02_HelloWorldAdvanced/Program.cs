@@ -28,6 +28,7 @@ namespace _07_HelloWorldWithCustomShaders
 	{
 		Node sunNode;
 		Vector3 sunPosBeforManipulations;
+		Vector3 earthPosBeforManipulations;
 		Material sunMaterial;
 		float cloudsOffset;
 
@@ -66,8 +67,8 @@ namespace _07_HelloWorldWithCustomShaders
 			LunarSystem lunarSystem = new LunarSystem(earth, moon);
 			lunarSystem.rotation();
 
-			/*var moonNode = sunNode.CreateChild();
-			moonNode.SetScale(0.006f);
+			var moonNode = sunNode.CreateChild();
+			moonNode.SetScale(0.27f);
 			moonNode.Position = new Vector3(1.2f, 0, 0);
 			var moon = moonNode.CreateComponent<Sphere>();
 			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));*/
@@ -106,11 +107,11 @@ namespace _07_HelloWorldWithCustomShaders
 			var baseJ = baseJupiter.CreateComponent<Sphere>();
 			baseJ.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
-			var jupiterNode = baseJupiter.CreateChild();
-			jupiterNode.SetScale(0.5f);
-			jupiterNode.Position = new Vector3(2f, 0, 0);
-			var jupiter = jupiterNode.CreateComponent<Sphere>();
-			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			var earthNode = sunNode.CreateChild();
+			earthNode.SetScale(1f);
+			earthNode.Position = new Vector3(2f, 0, 0);
+			var earth = earthNode.CreateComponent<Sphere>();
+			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
 			
 
@@ -134,7 +135,7 @@ namespace _07_HelloWorldWithCustomShaders
 		{
 			// Move clouds via CloudsOffset (defined in the material.xml and used in the PS)
 			cloudsOffset += 0.00005f;
-			sunMaterial.SetShaderParameter("CloudsOffset", new Vector2(cloudsOffset, 0));      //Pas modifier encore d'origine
+			sunMaterial.SetShaderParameter("CloudsOffset", new Vector2(cloudsOffset, 0));      
 																							   //NOTE: this could be done via SetShaderParameterAnimation
 		}
 
