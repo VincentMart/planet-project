@@ -43,8 +43,8 @@ namespace _07_HelloWorldWithCustomShaders
 
 			// Create a node for the Sun
 			sunNode = Scene.CreateChild();
-			sunNode.Position = new Vector3(0, 0, 4f);
-			sunNode.SetScale(0.5f);
+			sunNode.Position = new Vector3(0, 0, 8f);
+			sunNode.SetScale(1.3f);
 
 			DirectionalLight.Brightness = 0;
 			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));            //-1, 0, 0.5f
@@ -53,22 +53,18 @@ namespace _07_HelloWorldWithCustomShaders
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			sun.SetMaterial(sunMaterial);
 
-			var moonNode = sunNode.CreateChild();
-			moonNode.SetScale(0.27f);
-			moonNode.Position = new Vector3(1.2f, 0, 0);
-			var moon = moonNode.CreateComponent<Sphere>();
-			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));*/
+			
 
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
 			baseMercury.SetScale(0.99f);
 			baseMercury.Position = new Vector3(0, 0, 0);
 			var baseM = baseMercury.CreateComponent<Sphere>();
-			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
 
 			var mercuryNode = baseMercury.CreateChild();
-			mercuryNode.SetScale(0.5f);
-			mercuryNode.Position = new Vector3(1.2f, 0, 0);
+			mercuryNode.SetScale(0.2f);
+			mercuryNode.Position = new Vector3(0.8f, 0, 0);
 			var mercury = mercuryNode.CreateComponent<Sphere>();
 			mercury.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
 
@@ -77,13 +73,33 @@ namespace _07_HelloWorldWithCustomShaders
 			baseVenus.SetScale(0.99f);
 			baseVenus.Position = new Vector3(0, 0, 0);
 			var baseV = baseVenus.CreateComponent<Sphere>();
-			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
 
 			var venusNode = baseMercury.CreateChild();
-			venusNode.SetScale(0.5f);
-			venusNode.Position = new Vector3(1.5f, 0, 0);
+			venusNode.SetScale(0.3f);
+			venusNode.Position = new Vector3(1.1f, 0, 0);
 			var venus = venusNode.CreateComponent<Sphere>();
-			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
+			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
+
+			//Earth
+			var baseEarth= sunNode.CreateChild();
+			baseEarth.SetScale(0.99f);
+			baseEarth.Position = new Vector3(0, 0, 0);
+			var baseE= baseEarth.CreateComponent<Sphere>();
+			baseE.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
+
+			var earthNode = baseEarth.CreateChild();
+			earthNode.SetScale(0.3f);
+			earthNode.Position = new Vector3(1.1f, 0, 0);
+			var earth = earthNode.CreateComponent<Sphere>();
+			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
+
+			//Moon
+			var moonNode = sunNode.CreateChild();
+			moonNode.SetScale(0.27f);
+			moonNode.Position = new Vector3(1.2f, 0, 0);
+			var moon = moonNode.CreateComponent<Sphere>();
+			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));
 
 			//Jupiter
 			var baseJupiter = sunNode.CreateChild();
@@ -112,6 +128,25 @@ namespace _07_HelloWorldWithCustomShaders
 
 			// Run a few actions to spin the Earth, the Moon and the clouds.
 			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+
+
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0))); 
 		}
 
 		protected override void OnUpdate(float timeStep)
