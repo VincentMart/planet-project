@@ -17668,25 +17668,25 @@
     "UAP,Version=v10.0.10586": []
   },
   "packageFolders": {
-    "C:\\Users\\saaurelle\\.nuget\\packages\\": {},
+    "C:\\Users\\jules\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
-      "projectName": "02_HelloWorldAdvanced",
-      "projectPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\02_HelloWorldAdvanced.csproj",
-      "projectJsonPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\project.json",
-      "packagesPath": "C:\\Users\\saaurelle\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\saaurelle\\source\\repos\\planet-project\\02_HelloWorldAdvanced\\obj\\",
+      "projectUniqueName": "C:\\Users\\jules\\OneDrive\\Bureau\\IUT\\Deuxieme_annee\\Periode3\\RealiteVirtuelle\\Project\\02_HelloWorldAdvanced\\SolarSystem.csproj",
+      "projectName": "SolarSystem",
+      "projectPath": "C:\\Users\\jules\\OneDrive\\Bureau\\IUT\\Deuxieme_annee\\Periode3\\RealiteVirtuelle\\Project\\02_HelloWorldAdvanced\\SolarSystem.csproj",
+      "projectJsonPath": "C:\\Users\\jules\\OneDrive\\Bureau\\IUT\\Deuxieme_annee\\Periode3\\RealiteVirtuelle\\Project\\02_HelloWorldAdvanced\\project.json",
+      "packagesPath": "C:\\Users\\jules\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jules\\OneDrive\\Bureau\\IUT\\Deuxieme_annee\\Periode3\\RealiteVirtuelle\\Project\\02_HelloWorldAdvanced\\obj\\",
       "projectStyle": "ProjectJson",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\saaurelle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jules\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
