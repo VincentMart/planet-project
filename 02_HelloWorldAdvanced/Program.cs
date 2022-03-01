@@ -67,11 +67,12 @@ namespace _07_HelloWorldWithCustomShaders
 			LunarSystem lunarSystem = new LunarSystem(earth, moon);
 			lunarSystem.rotation();
 
+			/*
 			var moonNode = sunNode.CreateChild();
 			moonNode.SetScale(0.27f);
 			moonNode.Position = new Vector3(1.2f, 0, 0);
 			var moon = moonNode.CreateComponent<Sphere>();
-			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));*/
+			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));
 			
 			
 			//Mercure
@@ -112,6 +113,7 @@ namespace _07_HelloWorldWithCustomShaders
 			earthNode.Position = new Vector3(2f, 0, 0);
 			var earth = earthNode.CreateComponent<Sphere>();
 			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			*/
 
 			
 
