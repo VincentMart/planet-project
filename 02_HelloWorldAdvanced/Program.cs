@@ -53,18 +53,12 @@ namespace _07_HelloWorldWithCustomShaders
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			sun.SetMaterial(sunMaterial);
 
-			var moonNode = sunNode.CreateChild();
-			moonNode.SetScale(0.27f);
-			moonNode.Position = new Vector3(1.2f, 0, 0);
-			var moon = moonNode.CreateComponent<Sphere>();
-			moon.SetMaterial(ResourceCache.GetMaterial("Materials/Moon.xml"));*/
-
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
 			baseMercury.SetScale(0.99f);
 			baseMercury.Position = new Vector3(0, 0, 0);
 			var baseM = baseMercury.CreateComponent<Sphere>();
-			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
 
 			var mercuryNode = baseMercury.CreateChild();
 			mercuryNode.SetScale(0.5f);
@@ -77,13 +71,39 @@ namespace _07_HelloWorldWithCustomShaders
 			baseVenus.SetScale(0.99f);
 			baseVenus.Position = new Vector3(0, 0, 0);
 			var baseV = baseVenus.CreateComponent<Sphere>();
-			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
 
-			var venusNode = baseMercury.CreateChild();
+			var venusNode = baseVenus.CreateChild();
 			venusNode.SetScale(0.5f);
 			venusNode.Position = new Vector3(1.5f, 0, 0);
 			var venus = venusNode.CreateComponent<Sphere>();
-			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
+			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
+
+			//Earth
+			var baseEarth = sunNode.CreateChild();
+			baseEarth.SetScale(0.99f);
+			baseEarth.Position = new Vector3(0, 0, 0);
+			var baseE = baseEarth.CreateComponent<Sphere>();
+			baseE.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
+
+			var earthNode = baseEarth.CreateChild();
+			earthNode.SetScale(1f);
+			earthNode.Position = new Vector3(2f, 0, 0);
+			var earth = earthNode.CreateComponent<Sphere>();
+			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
+
+			//Mars
+			var baseMars = sunNode.CreateChild();
+			baseMars.SetScale(0.99f);
+			baseMars.Position = new Vector3(0, 0, 0);
+			var baseMa = baseMars.CreateComponent<Sphere>();
+			baseMa.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
+
+			var marsNode = baseMars.CreateChild();
+			marsNode.SetScale(1f);
+			marsNode.Position = new Vector3(2f, 0, 0);
+			var mars = marsNode.CreateComponent<Sphere>();
+			mars.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
 
 			//Jupiter
 			var baseJupiter = sunNode.CreateChild();
@@ -92,16 +112,52 @@ namespace _07_HelloWorldWithCustomShaders
 			var baseJ = baseJupiter.CreateComponent<Sphere>();
 			baseJ.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
-			var earthNode = sunNode.CreateChild();
-			earthNode.SetScale(1f);
-			earthNode.Position = new Vector3(2f, 0, 0);
-			var earth = earthNode.CreateComponent<Sphere>();
-			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
+			var jupiterNode = baseJupiter.CreateChild();
+			jupiterNode.SetScale(1f);
+			jupiterNode.Position = new Vector3(2f, 0, 0);
+			var jupiter = jupiterNode.CreateComponent<Sphere>();
+			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
-			// HolographicDisplay api is available in >=10.0.15063
-			// var display = Windows.Graphics.Holographic.HolographicDisplay.GetDefault();
-			// bool isHoloLens = display != null && !display.IsOpaque;
-			//Since the display is opaque - we can display a skybox with stars
+			//Saturn
+			var baseSaturn = sunNode.CreateChild();
+			baseSaturn.SetScale(0.99f);
+			baseSaturn.Position = new Vector3(0, 0, 0);
+			var baseS = baseSaturn.CreateComponent<Sphere>();
+			baseS.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
+
+			var saturnNode = baseSaturn.CreateChild();
+			saturnNode.SetScale(1f);
+			saturnNode.Position = new Vector3(2f, 0, 0);
+			var saturn = saturnNode.CreateComponent<Sphere>();
+			saturn.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
+
+			//Jupiter
+			var baseUranus = sunNode.CreateChild();
+			baseUranus.SetScale(0.99f);
+			baseUranus.Position = new Vector3(0, 0, 0);
+			var baseU = baseUranus.CreateComponent<Sphere>();
+			baseU.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
+
+			var uranusNode = baseUranus.CreateChild();
+			uranusNode.SetScale(1f);
+			uranusNode.Position = new Vector3(2f, 0, 0);
+			var uranus = uranusNode.CreateComponent<Sphere>();
+			uranus.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
+
+			//Neptune
+			var baseNeptune = sunNode.CreateChild();
+			baseNeptune.SetScale(0.99f);
+			baseNeptune.Position = new Vector3(0, 0, 0);
+			var baseN = baseNeptune.CreateComponent<Sphere>();
+			baseN.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
+
+			var neptuneNode = baseNeptune.CreateChild();
+			neptuneNode.SetScale(1f);
+			neptuneNode.Position = new Vector3(2f, 0, 0);
+			var neptune = neptuneNode.CreateComponent<Sphere>();
+			neptune.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
+
+
 			var skyboxNode = Scene.CreateChild();
 				skyboxNode.SetScale(100);
 				var skybox = skyboxNode.CreateComponent<Skybox>();
@@ -110,7 +166,6 @@ namespace _07_HelloWorldWithCustomShaders
 				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));
 			
 
-			// Run a few actions to spin the Earth, the Moon and the clouds.
 			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
 		}
 
