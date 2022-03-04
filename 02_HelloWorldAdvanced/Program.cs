@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Urho;
@@ -6,6 +6,7 @@ using Urho.Actions;
 using Urho.SharpReality;
 using Urho.Shapes;
 using Urho.Resources;
+using System;
 
 namespace _07_HelloWorldWithCustomShaders
 {
