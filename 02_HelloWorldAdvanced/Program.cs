@@ -43,8 +43,8 @@ namespace _07_HelloWorldWithCustomShaders
 
 			// Create a node for the Sun
 			sunNode = Scene.CreateChild();
-			sunNode.Position = new Vector3(0, 0, 4f);
-			sunNode.SetScale(0.5f);
+			sunNode.Position = new Vector3(0, 0, 8f);
+			sunNode.SetScale(0.8f);
 
 			DirectionalLight.Brightness = 0;
 			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));            //-1, 0, 0.5f
@@ -61,8 +61,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
 
 			var mercuryNode = baseMercury.CreateChild();
-			mercuryNode.SetScale(0.5f);
-			mercuryNode.Position = new Vector3(1.2f, 0, 0);
+			mercuryNode.SetScale(0.25f);
+			mercuryNode.Position = new Vector3(.9f, 0, 0);
 			var mercury = mercuryNode.CreateComponent<Sphere>();
 			mercury.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
 
@@ -74,8 +74,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
 
 			var venusNode = baseVenus.CreateChild();
-			venusNode.SetScale(0.5f);
-			venusNode.Position = new Vector3(1.5f, 0, 0);
+			venusNode.SetScale(0.32f);
+			venusNode.Position = new Vector3(1.3f, 0, 0);
 			var venus = venusNode.CreateComponent<Sphere>();
 			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
 
@@ -87,8 +87,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseE.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
 
 			var earthNode = baseEarth.CreateChild();
-			earthNode.SetScale(1f);
-			earthNode.Position = new Vector3(2f, 0, 0);
+			earthNode.SetScale(0.35f);
+			earthNode.Position = new Vector3(1.7f, 0, 0);
 			var earth = earthNode.CreateComponent<Sphere>();
 			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
 
@@ -100,8 +100,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseMa.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
 
 			var marsNode = baseMars.CreateChild();
-			marsNode.SetScale(1f);
-			marsNode.Position = new Vector3(2f, 0, 0);
+			marsNode.SetScale(0.29f);
+			marsNode.Position = new Vector3(2.2f, 0, 0);
 			var mars = marsNode.CreateComponent<Sphere>();
 			mars.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
 
@@ -113,8 +113,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseJ.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
 			var jupiterNode = baseJupiter.CreateChild();
-			jupiterNode.SetScale(1f);
-			jupiterNode.Position = new Vector3(2f, 0, 0);
+			jupiterNode.SetScale(.55f);
+			jupiterNode.Position = new Vector3(3f, 0, 0);
 			var jupiter = jupiterNode.CreateComponent<Sphere>();
 			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
 
@@ -126,12 +126,12 @@ namespace _07_HelloWorldWithCustomShaders
 			baseS.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
 
 			var saturnNode = baseSaturn.CreateChild();
-			saturnNode.SetScale(1f);
-			saturnNode.Position = new Vector3(2f, 0, 0);
+			saturnNode.SetScale(.50f);
+			saturnNode.Position = new Vector3(4f, 0, 0);
 			var saturn = saturnNode.CreateComponent<Sphere>();
 			saturn.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
 
-			//Jupiter
+			//Uranus
 			var baseUranus = sunNode.CreateChild();
 			baseUranus.SetScale(0.99f);
 			baseUranus.Position = new Vector3(0, 0, 0);
@@ -139,8 +139,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseU.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
 
 			var uranusNode = baseUranus.CreateChild();
-			uranusNode.SetScale(1f);
-			uranusNode.Position = new Vector3(2f, 0, 0);
+			uranusNode.SetScale(.4f);
+			uranusNode.Position = new Vector3(5f, 0, 0);
 			var uranus = uranusNode.CreateComponent<Sphere>();
 			uranus.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
 
@@ -152,8 +152,8 @@ namespace _07_HelloWorldWithCustomShaders
 			baseN.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
 
 			var neptuneNode = baseNeptune.CreateChild();
-			neptuneNode.SetScale(1f);
-			neptuneNode.Position = new Vector3(2f, 0, 0);
+			neptuneNode.SetScale(.4f);
+			neptuneNode.Position = new Vector3(6f, 0, 0);
 			var neptune = neptuneNode.CreateComponent<Sphere>();
 			neptune.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
 
