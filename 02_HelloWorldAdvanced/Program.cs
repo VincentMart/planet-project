@@ -166,7 +166,26 @@ namespace _07_HelloWorldWithCustomShaders
 				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));
 			
 
-			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 1f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -80, deltaAngleZ: 0)));
+
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+
+
+			baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
+			baseVenus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -280, deltaAngleZ: 0)));
+			baseEarth.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -160, deltaAngleZ: 0)));
+			baseMars.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -48, deltaAngleZ: 0)));
+			baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 60, deltaAngleZ: 0)));
+			baseSaturn.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
+			baseUranus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 77, deltaAngleZ: 0)));
+			baseNeptune.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 79, deltaAngleZ: 0)));
 		}
 
 		protected override void OnUpdate(float timeStep)
