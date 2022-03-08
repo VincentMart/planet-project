@@ -170,13 +170,13 @@ namespace _07_HelloWorldWithCustomShaders
 			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -80, deltaAngleZ: 0)));
 
 			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
+			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 1, deltaAngleZ: 0)));
+			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -243, deltaAngleZ: 0)));
+			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -237, deltaAngleZ: 0)));
+			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -589, deltaAngleZ: 0)));
+			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -547, deltaAngleZ: 0)));
+			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -338, deltaAngleY: 0, deltaAngleZ: 0)));
+			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -364, deltaAngleZ: 0)));
 
 
 			baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
