@@ -48,7 +48,7 @@ namespace _07_HelloWorldWithCustomShaders
 			sunNode.SetScale(0.8f);
 
 			DirectionalLight.Brightness = 0;
-			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));            //-1, 0, 0.5f
+			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));
 
 			var sun = sunNode.CreateComponent<Sphere>();
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
@@ -169,14 +169,14 @@ namespace _07_HelloWorldWithCustomShaders
 
 			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -80, deltaAngleZ: 0)));
 
-			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 1, deltaAngleZ: 0)));
-			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -243, deltaAngleZ: 0)));
-			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -237, deltaAngleZ: 0)));
-			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -589, deltaAngleZ: 0)));
-			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -547, deltaAngleZ: 0)));
-			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -338, deltaAngleY: 0, deltaAngleZ: 0)));
-			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -364, deltaAngleZ: 0)));
+			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
+			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 82, deltaAngleZ: 0)));
+			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -406, deltaAngleZ: 0)));
+			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -394, deltaAngleZ: 0)));
+			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1098, deltaAngleZ: 0)));
+			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1014, deltaAngleZ: 0)));
+			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -676, deltaAngleY: 80, deltaAngleZ: 0)));
+			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -648, deltaAngleZ: 0)));
 
 
 			baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
@@ -193,8 +193,7 @@ namespace _07_HelloWorldWithCustomShaders
 		{
 			// Move clouds via CloudsOffset (defined in the material.xml and used in the PS)
 			cloudsOffset += 0.00005f;
-			sunMaterial.SetShaderParameter("CloudsOffset", new Vector2(cloudsOffset, 0));      
-																							   //NOTE: this could be done via SetShaderParameterAnimation
+			sunMaterial.SetShaderParameter("CloudsOffset", new Vector2(cloudsOffset, 0));
 		}
 
 		// For HL optical stabilization (optional)
@@ -209,6 +208,14 @@ namespace _07_HelloWorldWithCustomShaders
 		{
 			sunNode.Position = relativeHandPosition + sunPosBeforManipulations;
 		}
+
+		/*public void GestionPlanete(Node node)												//
+		{																					//
+			Sphere newnode = node.CreateComponent<Sphere>();								//
+			newnode.SetScale(0.8f);															//	Test
+			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");					//
+			sun.SetMaterial(sunMaterial);													//
+		}*/																					//
 
 		public override void OnGestureDoubleTapped()
 		{
