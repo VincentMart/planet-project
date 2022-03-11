@@ -56,7 +56,7 @@ namespace SolarSystem
 
 			//Nouvelle planete via classe
 			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
-			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 15f, 10f);
+			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
 
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
