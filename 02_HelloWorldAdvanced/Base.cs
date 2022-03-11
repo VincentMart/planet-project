@@ -1,29 +1,23 @@
-﻿using System.Diagnostics;
-using Windows.ApplicationModel.Core;
-using Urho;
-using Urho.Actions;
-using Urho.SharpReality;
+﻿using Urho;
 using Urho.Shapes;
-using Urho.Resources;
-using System;
 
 namespace SolarSystem
 {
     internal class Base
     {
-        Node parentNode;
-        Material planetMaterial;
+        private Node baseNode;
+        private Material baseMaterial;
 
-        public Base(Node planetNode)
+        public Base(Node baseNode, Material baseMaterial)
         {
-            this.parentNode = parentNode;
-            planetMaterial = RessourceCache.GetMaterial("Materials/Sun.xml");
+            this.baseNode = baseNode;
+            this.baseMaterial = baseMaterial;
 
-            var basePlanet = parentNode.CreateChild();
+            var basePlanet = baseNode.CreateChild();
             basePlanet.SetScale(0.99f);
             basePlanet.Position = new Vector3(0, 0, 0);
             var baseP = basePlanet.CreateComponent<Sphere>();
-            baseP.SetMaterial(planetMaterial);
-        } 
+            baseP.SetMaterial(baseMaterial);
+        }
     }
 }
