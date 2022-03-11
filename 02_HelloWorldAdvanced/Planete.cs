@@ -16,8 +16,9 @@ namespace SolarSystem
             this.parentNode = parentNode;
             this.planetMaterial = planetMaterial;
 
-            //nouvelle initialisation de la base
-            Base planetBase = new Base(parentNode, planetMaterial);
+            //nouvelle initialisation de la base MARCHE PAS POUR L'INSTANT
+            //Base planetBase = new Base(parentNode, planetMaterial);
+
             //definition de la base d'une planete se basant sur le node d'un node pere
             var basePlanet = parentNode.CreateChild();
             basePlanet.SetScale(0.99f);
@@ -27,7 +28,7 @@ namespace SolarSystem
 
             //definition du node d'une planete se basant sur la base de cette derniere
             var planetNode = basePlanet.CreateChild();
-            planetNode.SetScale(10f);
+            planetNode.SetScale(taille);
             planetNode.Position = new Vector3(5f, 0, 0);
             var planet = planetNode.CreateComponent<Sphere>();
             planet.SetMaterial(planetMaterial);
