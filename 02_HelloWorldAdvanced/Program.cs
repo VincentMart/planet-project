@@ -1,5 +1,4 @@
-﻿
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Urho;
 using Urho.Actions;
