@@ -9,8 +9,9 @@ namespace SolarSystem
     {
         private Node parentNode;
         private Material planetMaterial;
+        private Node planetNode;
 
-        public Planete(Node parentNode, Material planetMaterial)
+        public Planete(Node parentNode, Material planetMaterial, float taille)
         {
             this.parentNode = parentNode;
             this.planetMaterial = planetMaterial;
@@ -30,6 +31,11 @@ namespace SolarSystem
             planetNode.Position = new Vector3(5f, 0, 0);
             var planet = planetNode.CreateComponent<Sphere>();
             planet.SetMaterial(planetMaterial);
+        }
+
+        public void Mouvement(float vitesse, int axeX, int axeY, int axeZ)
+        {
+            planetNode.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
         }
     }
 }
