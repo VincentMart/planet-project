@@ -8,7 +8,7 @@ using Urho.Shapes;
 using Urho.Resources;
 using System;
 
-namespace _07_HelloWorldWithCustomShaders
+namespace SolarSystem
 {
 	/// <summary>
 	/// Windows Holographic application using SharpDX.
@@ -53,6 +53,10 @@ namespace _07_HelloWorldWithCustomShaders
 			var sun = sunNode.CreateComponent<Sphere>();
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			sun.SetMaterial(sunMaterial);
+
+			//Nouvelle planete via classe
+			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
+			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 15f, 10f);
 
 			//Mercure
 			var baseMercury = sunNode.CreateChild();

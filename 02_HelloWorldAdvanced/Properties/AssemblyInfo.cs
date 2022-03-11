@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("_07_HelloWorldWithCustomShaders")]
+[assembly: AssemblyTitle("SolarSystem")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 
-[assembly: AssemblyProduct("_07_HelloWorldWithCustomShaders")]
+[assembly: AssemblyProduct("SolarSystem")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 
 [assembly: AssemblyTrademark("")]
