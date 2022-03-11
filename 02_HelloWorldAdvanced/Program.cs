@@ -1,5 +1,4 @@
-﻿
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Windows.ApplicationModel.Core;
 using Urho;
 using Urho.Actions;
@@ -56,7 +55,12 @@ namespace SolarSystem
 
 			//Nouvelle planete via classe
 			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
+<<<<<<< HEAD
 			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
+=======
+			Planete MercureV2 = new Planete(sunNode, mercuryMaterial);
+
+>>>>>>> 01796109407dacfba9efcf71738d774e8ebfa2f1
 
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
@@ -232,12 +236,14 @@ namespace SolarSystem
 			Node test;
 
 			test = Scene.CreateChild();
-			test.Position = new Vector3(0, 0, 6f);
+			test.Position = new Vector3(1f, -1f, 6f);
 			test.SetScale(0.8f);
 
 			var nodetest = test.CreateComponent<Sphere>();
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			nodetest.SetMaterial(sunMaterial);
+
+			test.Remove();
 
 
 			base.OnGestureTapped();
