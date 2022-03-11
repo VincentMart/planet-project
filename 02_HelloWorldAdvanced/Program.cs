@@ -233,12 +233,14 @@ namespace SolarSystem
 			Node test;
 
 			test = Scene.CreateChild();
-			test.Position = new Vector3(0, 0, 6f);
+			test.Position = new Vector3(1f, -1f, 6f);
 			test.SetScale(0.8f);
 
 			var nodetest = test.CreateComponent<Sphere>();
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			nodetest.SetMaterial(sunMaterial);
+
+			test.Remove();
 
 
 			base.OnGestureTapped();
