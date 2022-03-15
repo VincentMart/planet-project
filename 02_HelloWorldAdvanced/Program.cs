@@ -55,18 +55,12 @@ namespace SolarSystem
 
 			//Nouvelle declaration de planete via classe avec methodes
 			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
-=======
-			Planete MercureV2 = new Planete(sunNode, mercuryMaterial);
-=======
-			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.8f);
+
 			MercureV2.Mouvement(15f, 0, 72, 0);
->>>>>>> cf1761fc4051a405be44da46a7ed9e652dfc9882
 
->>>>>>> 01796109407dacfba9efcf71738d774e8ebfa2f1
-
+			/*
 			//Mercure
 			var baseMercury = sunNode.CreateChild();
 			baseMercury.SetScale(0.99f);
@@ -200,6 +194,7 @@ namespace SolarSystem
 			baseSaturn.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
 			baseUranus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 77, deltaAngleZ: 0)));
 			baseNeptune.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 79, deltaAngleZ: 0)));
+			*/
 		}
 
 		protected override void OnUpdate(float timeStep)

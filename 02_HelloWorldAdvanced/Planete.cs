@@ -6,8 +6,7 @@ using Urho;
 namespace SolarSystem
 {
     internal class Planete
-    {
-<<<<<<< HEAD
+    { 
         public Node ParentNode { get; set; }
         public Material PlanetMaterial { get; set; }
         public float Taille { get; set; }
@@ -21,18 +20,10 @@ namespace SolarSystem
 
 
 
+
+
         public Planete(Node parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ
             , float vitesse, float revolution)
-
-        public Planete(Node parentNode, Material planetMaterial)
-
-
-        private Node parentNode;
-        private Material planetMaterial;
-        private Node planetNode;
-
-        public Planete(Node parentNode, Material planetMaterial, float taille)
->>>>>>> cf1761fc4051a405be44da46a7ed9e652dfc9882
         {
             ParentNode = parentNode;
             PlanetMaterial = planetMaterial;
@@ -75,25 +66,11 @@ namespace SolarSystem
 
             //nouvelle initialisation de la base MARCHE PAS POUR L'INSTANT
             //Base planetBase = new Base(parentNode, planetMaterial);
-
-            //definition de la base d'une planete se basant sur le node d'un node pere
-            var basePlanet = parentNode.CreateChild();
-            basePlanet.SetScale(0.99f);
-            basePlanet.Position = new Vector3(0, 0, 0);
-            var baseP = basePlanet.CreateComponent<Sphere>();
-            baseP.SetMaterial(planetMaterial);
-
-            //definition du node d'une planete se basant sur la base de cette derniere
-            var planetNode = basePlanet.CreateChild();
-            planetNode.SetScale(taille);
-            planetNode.Position = new Vector3(5f, 0, 0);
-            var planet = planetNode.CreateComponent<Sphere>();
-            planet.SetMaterial(planetMaterial);
         }
 
         public void Mouvement(float vitesse, int axeX, int axeY, int axeZ)
         {
-            planetNode.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
+            PlanetNode.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
         }
     }
 }
