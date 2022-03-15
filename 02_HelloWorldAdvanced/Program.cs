@@ -57,13 +57,7 @@ namespace SolarSystem
 
 			//Nouvelle declaration de planete via classe avec methodes
 
-			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
-
-			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
-
-			MercureV2.Mouvement(15f, 0, 72, 0);
-
-
+			ResourcePack ressouce = new ResourcePack(sunNode, ResourceCache);
 
 			CameraNode = Scene.CreateChild("Camera");
 			Camera camera = CameraNode.CreateComponent<Camera>();
@@ -181,7 +175,7 @@ namespace SolarSystem
 			neptune.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
 
 
-			RessourcePack stub = new RessourcePack(sunNode,ResourceCache);
+			ResourcePack stub = new ResourcePack(sunNode,ResourceCache);
 
 
 			var skyboxNode = Scene.CreateChild();

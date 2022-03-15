@@ -13,8 +13,6 @@ namespace SolarSystem
         public float X { get; set; }
         public float Y { get; set; }
         public float Z { get; set; }
-        public float Vitesse { get; set; }
-        public float Revolution { get; set; }
         public Node Base { get; set; }
         public Node PlanetNode { get; set; }
 
@@ -22,8 +20,7 @@ namespace SolarSystem
 
 
 
-        public Planete(Node parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ
-            , float vitesse, float revolution)
+        public Planete(Node parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ)
         {
             ParentNode = parentNode;
             PlanetMaterial = planetMaterial;
@@ -31,8 +28,6 @@ namespace SolarSystem
             X = positionX;
             Y = positionY;
             Z = positionZ;
-            Vitesse = vitesse;
-            Revolution = revolution;
             Init();
         }
 
@@ -44,14 +39,7 @@ namespace SolarSystem
             Base.SetScale(0.99f);
             Base.Position = new Vector3(0, 0, 0);
 
-        }
-
-        //definition des deplacements des planetes
-        public void Rotations()
-        {
-            PlanetNode.RunActions(new RepeatForever(new RotateBy(duration: Vitesse, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-            Base.RunActions(new RepeatForever(new RotateBy(duration: Revolution, deltaAngleX: 0, deltaAngleY: -4, deltaAngleZ: 0)));
-        }
+        }       
 
         //definition du node de la planete se basant sur la base de cette derniere
         public void Init()
@@ -62,15 +50,19 @@ namespace SolarSystem
             PlanetNode.Position = new Vector3(X, Y, Z);
             var planet = PlanetNode.CreateComponent<Sphere>();
             planet.SetMaterial(PlanetMaterial);
-            Rotations();
 
             //nouvelle initialisation de la base MARCHE PAS POUR L'INSTANT
             //Base planetBase = new Base(parentNode, planetMaterial);
         }
 
-        public void Mouvement(float vitesse, int axeX, int axeY, int axeZ)
+        public void Rotation(float vitesse, int axeX, int axeY, int axeZ)
         {
             PlanetNode.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
+        }
+
+        public void Revolution(float vitesse, int axeX, int axeY, int axeZ)
+        {
+            Base.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
         }
     }
 }
