@@ -28,7 +28,9 @@ namespace SolarSystem
 		Vector3 earthPosBeforManipulations;
 		Material sunMaterial;
 		float cloudsOffset;
+		
 
+		protected Node CameraNode { get; set; }
 		public HelloWorldApplication(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
@@ -59,6 +61,18 @@ namespace SolarSystem
 			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
 
 			MercureV2.Mouvement(15f, 0, 72, 0);
+
+
+
+			CameraNode = Scene.CreateChild("Camera");
+			Camera camera = CameraNode.CreateComponent<Camera>();
+			camera.FarClip = 300.0f;
+			CameraNode.Position = new Vector3(0.0f, 5.0f, 0.0f);
+
+			Renderer.NumViewports = 1;
+			Viewport viewport = new Viewport(Context, Scene, camera, null);
+			Renderer.SetViewport(0, viewport);
+
 
 			/*
 			//Mercure
