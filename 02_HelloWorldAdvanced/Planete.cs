@@ -7,6 +7,7 @@ namespace SolarSystem
 {
     internal class Planete
     {
+<<<<<<< HEAD
         public Node ParentNode { get; set; }
         public Material PlanetMaterial { get; set; }
         public float Taille { get; set; }
@@ -18,13 +19,20 @@ namespace SolarSystem
         public Node Base { get; set; }
         public Node PlanetNode { get; set; }
 
-<<<<<<< HEAD
+
 
         public Planete(Node parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ
             , float vitesse, float revolution)
-=======
+
         public Planete(Node parentNode, Material planetMaterial)
->>>>>>> 01796109407dacfba9efcf71738d774e8ebfa2f1
+
+
+        private Node parentNode;
+        private Material planetMaterial;
+        private Node planetNode;
+
+        public Planete(Node parentNode, Material planetMaterial, float taille)
+>>>>>>> cf1761fc4051a405be44da46a7ed9e652dfc9882
         {
             ParentNode = parentNode;
             PlanetMaterial = planetMaterial;
@@ -37,7 +45,7 @@ namespace SolarSystem
             Init();
         }
 
-<<<<<<< HEAD
+
         //definition de la base de la planete se basant sur le node d'un node pere
         public void InitBase()
         {
@@ -64,7 +72,7 @@ namespace SolarSystem
             var planet = PlanetNode.CreateComponent<Sphere>();
             planet.SetMaterial(PlanetMaterial);
             Rotations();
-=======
+
             //nouvelle initialisation de la base
             Base planetBase = new Base(parentNode, planetMaterial);
             //definition de la base d'une planete se basant sur le node d'un node pere
@@ -80,7 +88,11 @@ namespace SolarSystem
             planetNode.Position = new Vector3(5f, 0, 0);
             var planet = planetNode.CreateComponent<Sphere>();
             planet.SetMaterial(planetMaterial);
->>>>>>> 01796109407dacfba9efcf71738d774e8ebfa2f1
+        }
+
+        public void Mouvement(float vitesse, int axeX, int axeY, int axeZ)
+        {
+            planetNode.RunActions(new RepeatForever(new RotateBy(duration: vitesse, deltaAngleX: axeX, deltaAngleY: axeY, deltaAngleZ: axeZ)));
         }
     }
 }
