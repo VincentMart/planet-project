@@ -25,10 +25,10 @@ namespace SolarSystem
 	{
 		Node sunNode;
 		Vector3 sunPosBeforManipulations;
-		Vector3 earthPosBeforManipulations;
 		Material sunMaterial;
 		float cloudsOffset;
-		
+
+		ApplicationOptions opts;
 
 		protected Node CameraNode { get; set; }
 		public HelloWorldApplication(ApplicationOptions opts) : base(opts) { }
@@ -56,6 +56,7 @@ namespace SolarSystem
 			sun.SetMaterial(sunMaterial);
 
 			//Nouvelle declaration de planete via classe avec methodes
+
 			Material mercuryMaterial = ResourceCache.GetMaterial("Materials/Mercury.xml");
 
 			Planete MercureV2 = new Planete(sunNode, mercuryMaterial, 0.9f, 0f, 0f, 15f, 10f, 100f);
@@ -71,7 +72,7 @@ namespace SolarSystem
 
 			Renderer.NumViewports = 1;
 			Viewport viewport = new Viewport(Context, Scene, camera, null);
-			Renderer.SetViewport(0, viewport);
+            Renderer.SetViewport(0, viewport);
 
 
 			/*
@@ -180,34 +181,17 @@ namespace SolarSystem
 			neptune.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
 
 
+			RessourcePack stub = new RessourcePack(sunNode,ResourceCache);
+
+
 			var skyboxNode = Scene.CreateChild();
 				skyboxNode.SetScale(100);
 				var skybox = skyboxNode.CreateComponent<Skybox>();
 				skybox.Model = CoreAssets.Models.Box;
 				//Skybox is usally a 6 textures joined together, see FeatureSamples/Core/23_Water sample
-				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));
-			
+				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));			
 
 			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -80, deltaAngleZ: 0)));
-
-			mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
-			venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 82, deltaAngleZ: 0)));
-			earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -406, deltaAngleZ: 0)));
-			marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -394, deltaAngleZ: 0)));
-			jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1098, deltaAngleZ: 0)));
-			saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1014, deltaAngleZ: 0)));
-			uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -676, deltaAngleY: 80, deltaAngleZ: 0)));
-			neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -648, deltaAngleZ: 0)));
-
-
-			baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
-			baseVenus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -280, deltaAngleZ: 0)));
-			baseEarth.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -160, deltaAngleZ: 0)));
-			baseMars.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -48, deltaAngleZ: 0)));
-			baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 60, deltaAngleZ: 0)));
-			baseSaturn.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
-			baseUranus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 77, deltaAngleZ: 0)));
-			baseNeptune.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 79, deltaAngleZ: 0)));
 			*/
 		}
 
@@ -264,3 +248,24 @@ namespace SolarSystem
 		}
 	}
 }
+
+/*
+mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
+venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 82, deltaAngleZ: 0)));
+earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -406, deltaAngleZ: 0)));
+marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -394, deltaAngleZ: 0)));
+jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1098, deltaAngleZ: 0)));
+saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1014, deltaAngleZ: 0)));
+uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -676, deltaAngleY: 80, deltaAngleZ: 0)));
+neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -648, deltaAngleZ: 0)));
+
+
+baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
+baseVenus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -280, deltaAngleZ: 0)));
+baseEarth.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -160, deltaAngleZ: 0)));
+baseMars.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -48, deltaAngleZ: 0)));
+baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 60, deltaAngleZ: 0)));
+baseSaturn.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
+baseUranus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 77, deltaAngleZ: 0)));
+baseNeptune.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 79, deltaAngleZ: 0)));
+*/
