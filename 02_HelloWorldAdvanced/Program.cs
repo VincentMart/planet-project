@@ -6,6 +6,7 @@ using Urho.SharpReality;
 using Urho.Shapes;
 using Urho.Resources;
 using System;
+using Urho.Gui;
 
 namespace SolarSystem
 {
@@ -24,10 +25,11 @@ namespace SolarSystem
 	public class SolarSystemApp : StereoApplication
 	{
 		Node sunNode;
+		Node bucketNode;
+		Node textNode;
 		Vector3 sunPosBeforManipulations;
 		Material sunMaterial;
 		float cloudsOffset;
-
 		ApplicationOptions opts;
 		public SolarSystemApp(ApplicationOptions opts) : base(opts) { }
 
@@ -40,6 +42,22 @@ namespace SolarSystem
 
 			Log.LogLevel = LogLevel.Warning;
 			Log.LogMessage += l => { Debug.WriteLine(l.Level + ":  " + l.Message); };
+
+			// Create a node for the text
+			bucketNode = Scene.CreateChild();
+			bucketNode.SetScale(0.1f);
+
+			// Implement a text test
+			textNode = bucketNode.CreateChild();
+			var text3D = textNode.CreateComponent<Text3D>();
+			text3D.HorizontalAlignment = HorizontalAlignment.Center;
+			text3D.VerticalAlignment = VerticalAlignment.Center;
+			text3D.ViewMask = 0x80000000; //magie noire
+			text3D.Text = "Ceci est un\n TEST";
+			text3D.SetFont(CoreAssets.Fonts.AnonymousPro, 26);
+			text3D.SetColor(Color.Cyan);
+			textNode.Translate(new Vector3(0, 3f, -0.5f));
+
 
 			// Create a node for the Sun
 			sunNode = Scene.CreateChild();
