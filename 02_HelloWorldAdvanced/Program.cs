@@ -18,10 +18,10 @@ namespace SolarSystem
 		/// Defines the entry point of the application.
 		/// </summary>
 		[MTAThread]
-		static void Main() => CoreApplication.Run(new UrhoAppViewSource<HelloWorldApplication>(new ApplicationOptions("Data")));
+		static void Main() => CoreApplication.Run(new UrhoAppViewSource<SolarSystemApp>(new ApplicationOptions("Data")));
 	}
 
-	public class HelloWorldApplication : StereoApplication
+	public class SolarSystemApp : StereoApplication
 	{
 		Node sunNode;
 		Vector3 sunPosBeforManipulations;
@@ -31,7 +31,7 @@ namespace SolarSystem
 		ApplicationOptions opts;
 
 		protected Node CameraNode { get; set; }
-		public HelloWorldApplication(ApplicationOptions opts) : base(opts) { }
+		public SolarSystemApp(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
 		{
