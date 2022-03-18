@@ -18,10 +18,10 @@ namespace SolarSystem
 		/// Defines the entry point of the application.
 		/// </summary>
 		[MTAThread]
-		static void Main() => CoreApplication.Run(new UrhoAppViewSource<HelloWorldApplication>(new ApplicationOptions("Data")));
+		static void Main() => CoreApplication.Run(new UrhoAppViewSource<SolarSystemApp>(new ApplicationOptions("Data")));
 	}
 
-	public class HelloWorldApplication : StereoApplication
+	public class SolarSystemApp : StereoApplication
 	{
 		Node sunNode;
 		Vector3 sunPosBeforManipulations;
@@ -29,9 +29,7 @@ namespace SolarSystem
 		float cloudsOffset;
 
 		ApplicationOptions opts;
-
-	
-		public HelloWorldApplication(ApplicationOptions opts) : base(opts) { }
+		public SolarSystemApp(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
 		{
@@ -61,115 +59,7 @@ namespace SolarSystem
 
 			ResourcePack ressouce = new ResourcePack(Scene, ResourceCache);
 
-
-
 			/*
-			//Mercure
-			var baseMercury = sunNode.CreateChild();
-			baseMercury.SetScale(0.99f);
-			baseMercury.Position = new Vector3(0, 0, 0);
-			var baseM = baseMercury.CreateComponent<Sphere>();
-			baseM.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
-
-			var mercuryNode = baseMercury.CreateChild();
-			mercuryNode.SetScale(0.25f);
-			mercuryNode.Position = new Vector3(.9f, 0, 0);
-			var mercury = mercuryNode.CreateComponent<Sphere>();
-			mercury.SetMaterial(ResourceCache.GetMaterial("Materials/Mercury.xml"));
-
-			//Venus
-			var baseVenus = sunNode.CreateChild();
-			baseVenus.SetScale(0.99f);
-			baseVenus.Position = new Vector3(0, 0, 0);
-			var baseV = baseVenus.CreateComponent<Sphere>();
-			baseV.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
-
-			var venusNode = baseVenus.CreateChild();
-			venusNode.SetScale(0.32f);
-			venusNode.Position = new Vector3(1.3f, 0, 0);
-			var venus = venusNode.CreateComponent<Sphere>();
-			venus.SetMaterial(ResourceCache.GetMaterial("Materials/Venus.xml"));
-
-			//Earth
-			var baseEarth = sunNode.CreateChild();
-			baseEarth.SetScale(0.99f);
-			baseEarth.Position = new Vector3(0, 0, 0);
-			var baseE = baseEarth.CreateComponent<Sphere>();
-			baseE.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
-
-			var earthNode = baseEarth.CreateChild();
-			earthNode.SetScale(0.35f);
-			earthNode.Position = new Vector3(1.7f, 0, 0);
-			var earth = earthNode.CreateComponent<Sphere>();
-			earth.SetMaterial(ResourceCache.GetMaterial("Materials/Earth.xml"));
-
-			//Mars
-			var baseMars = sunNode.CreateChild();
-			baseMars.SetScale(0.99f);
-			baseMars.Position = new Vector3(0, 0, 0);
-			var baseMa = baseMars.CreateComponent<Sphere>();
-			baseMa.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
-
-			var marsNode = baseMars.CreateChild();
-			marsNode.SetScale(0.29f);
-			marsNode.Position = new Vector3(2.2f, 0, 0);
-			var mars = marsNode.CreateComponent<Sphere>();
-			mars.SetMaterial(ResourceCache.GetMaterial("Materials/Mars.xml"));
-
-			//Jupiter
-			var baseJupiter = sunNode.CreateChild();
-			baseJupiter.SetScale(0.99f);
-			baseJupiter.Position = new Vector3(0, 0, 0);
-			var baseJ = baseJupiter.CreateComponent<Sphere>();
-			baseJ.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
-
-			var jupiterNode = baseJupiter.CreateChild();
-			jupiterNode.SetScale(.55f);
-			jupiterNode.Position = new Vector3(3f, 0, 0);
-			var jupiter = jupiterNode.CreateComponent<Sphere>();
-			jupiter.SetMaterial(ResourceCache.GetMaterial("Materials/Jupiter.xml"));
-
-			//Saturn
-			var baseSaturn = sunNode.CreateChild();
-			baseSaturn.SetScale(0.99f);
-			baseSaturn.Position = new Vector3(0, 0, 0);
-			var baseS = baseSaturn.CreateComponent<Sphere>();
-			baseS.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
-
-			var saturnNode = baseSaturn.CreateChild();
-			saturnNode.SetScale(.50f);
-			saturnNode.Position = new Vector3(4f, 0, 0);
-			var saturn = saturnNode.CreateComponent<Sphere>();
-			saturn.SetMaterial(ResourceCache.GetMaterial("Materials/Saturn.xml"));
-
-			//Uranus
-			var baseUranus = sunNode.CreateChild();
-			baseUranus.SetScale(0.99f);
-			baseUranus.Position = new Vector3(0, 0, 0);
-			var baseU = baseUranus.CreateComponent<Sphere>();
-			baseU.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
-
-			var uranusNode = baseUranus.CreateChild();
-			uranusNode.SetScale(.4f);
-			uranusNode.Position = new Vector3(5f, 0, 0);
-			var uranus = uranusNode.CreateComponent<Sphere>();
-			uranus.SetMaterial(ResourceCache.GetMaterial("Materials/Uranus.xml"));
-
-			//Neptune
-			var baseNeptune = sunNode.CreateChild();
-			baseNeptune.SetScale(0.99f);
-			baseNeptune.Position = new Vector3(0, 0, 0);
-			var baseN = baseNeptune.CreateComponent<Sphere>();
-			baseN.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
-
-			var neptuneNode = baseNeptune.CreateChild();
-			neptuneNode.SetScale(.4f);
-			neptuneNode.Position = new Vector3(6f, 0, 0);
-			var neptune = neptuneNode.CreateComponent<Sphere>();
-			neptune.SetMaterial(ResourceCache.GetMaterial("Materials/Neptune.xml"));
-
-
-			ResourcePack stub = new ResourcePack(sunNode,ResourceCache);
 
 
 			var skyboxNode = Scene.CreateChild();
