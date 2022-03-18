@@ -5,9 +5,9 @@ using Urho;
 
 namespace SolarSystem
 {
-    internal class Planete
+    internal class Planete : Node
     { 
-        public Node ParentNode { get; set; }
+        public Planete ParentNode { get; set; }
         public Material PlanetMaterial { get; set; }
         public float Taille { get; set; }
         public float X { get; set; }
@@ -20,7 +20,7 @@ namespace SolarSystem
 
 
 
-        public Planete(Node parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ)
+        public Planete(Planete parentNode, Material planetMaterial, float taille, float positionX, float positionY, float positionZ)
         {
             ParentNode = parentNode;
             PlanetMaterial = planetMaterial;
@@ -30,6 +30,7 @@ namespace SolarSystem
             Z = positionZ;
             Init();
         }
+
 
 
         //definition de la base de la planete se basant sur le node d'un node pere
