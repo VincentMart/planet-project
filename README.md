@@ -1,13 +1,17 @@
-This sample showcases how to write and use custom shaders. It's basically the same HelloWorld sample, but
-it applies a more complicated material to the Earth.
+README -------------
 
-The material is defined in [Earth.xml](https://github.com/xamarin/urho-samples/blob/master/HoloLens/02_HelloWorldAdvanced/Data/Materials/Earth.xml). It defines 5 textures and some parameters:
+	Application réalisée par Jules Bloux, Vincent Martin et Sam Aurelle
+Celle-ci a pour but de modéliser le système solaire en 3D.
+La bibliothèque utilisée est Urho Sharp dans le langage C#. 
 
-![Screenshot](Screenshots/Maps.png) 
+PS: 
+Nous avons créé le projet à partir d'un exemple donné par Urho Sharp: d'où le nom exotique du projet. 
 
-Also, it defines [EarthTechnique.xml](https://github.com/xamarin/urho-samples/blob/master/HoloLens/02_HelloWorldAdvanced/Data/Techniques/EarthTechnique.xml) technique which in this case just defines a single 
-pass for a custom shader - [CustomLitSolid.hlsl](https://github.com/xamarin/urho-samples/blob/master/HoloLens/02_HelloWorldAdvanced/Data/Shaders/HLSL/CustomLitSolid.hlsl).
-The Pixel Shader part of that shader merges all those 5 textures:
+Lien de la vidéo démo: https://youtu.be/ZyvyeX-1g0w 
 
-![Screenshot](Screenshots/Video.gif) 
 
+Ce que nous aurions aimer compléter: 
+
+- Ajouter une option permettant d'avoir des informations sur la planète en pointant dessus. 
+- Ajouter des shaders aux planète et au système (donner du volume) 
+- Modéliser les révolutions afin qu'elles respectent les ellipses réelles  

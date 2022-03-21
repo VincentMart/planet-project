@@ -25,12 +25,9 @@ namespace SolarSystem
 	public class SolarSystemApp : StereoApplication
 	{
 		Node sunNode;
-		Node bucketNode;
-		Node textNode;
 		Vector3 sunPosBeforManipulations;
 		Material sunMaterial;
 		float cloudsOffset;
-		ApplicationOptions opts;
 		public SolarSystemApp(ApplicationOptions opts) : base(opts) { }
 
 		protected override async void Start()
@@ -43,57 +40,37 @@ namespace SolarSystem
 			Log.LogLevel = LogLevel.Warning;
 			Log.LogMessage += l => { Debug.WriteLine(l.Level + ":  " + l.Message); };
 
-			// Create a node for the text
-			bucketNode = Scene.CreateChild();
-			bucketNode.SetScale(0.1f);
-
-			// Implement a text test
-			textNode = bucketNode.CreateChild();
-			var text3D = textNode.CreateComponent<Text3D>();
-			text3D.HorizontalAlignment = HorizontalAlignment.Center;
-			text3D.VerticalAlignment = VerticalAlignment.Center;
-			text3D.ViewMask = 0x80000000; //magie noire
-			text3D.Text = "Ceci est un\n TEST";
-			text3D.SetFont(CoreAssets.Fonts.AnonymousPro, 26);
-			text3D.SetColor(Color.Cyan);
-			textNode.Translate(new Vector3(0, 3f, -0.5f));
-
-
-			// Create a node for the Sun
+			// Create the star (the sun here)
+			
 			sunNode = Scene.CreateChild();
-			sunNode.Position = new Vector3(0, 0, 8f);
+			sunNode.Position = new Vector3(0, 0.5f, 3f);
 			sunNode.SetScale(0.8f);
-
-			DirectionalLight.Brightness = 0;
-			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));
 
 			var sun = sunNode.CreateComponent<Sphere>();
 			sunMaterial = ResourceCache.GetMaterial("Materials/Sun.xml");
 			sun.SetMaterial(sunMaterial);
 
+			sunNode.RunActions(new RepeatForever(new RotateBy(5, deltaAngleX: 0, deltaAngleY: 100, deltaAngleZ: 0)));
 
 
-			//Nouvelle declaration de planete via classe avec methodes
-
-			ResourcePack ressouce = new ResourcePack(Scene, ResourceCache);
-
-			/*
+			DirectionalLight.Brightness = 0;
+			DirectionalLight.Node.SetDirection(new Vector3(0, 0, 0));
 
 
+			ResourcePack ressouce = new ResourcePack(sunNode, ResourceCache);
+
+
+			//Pas présent dans la vidéo démo
 			var skyboxNode = Scene.CreateChild();
 				skyboxNode.SetScale(100);
 				var skybox = skyboxNode.CreateComponent<Skybox>();
 				skybox.Model = CoreAssets.Models.Box;
-				//Skybox is usally a 6 textures joined together, see FeatureSamples/Core/23_Water sample
 				skybox.SetMaterial(Material.SkyboxFromImage("Textures/Space.png"));			
 
-			sunNode.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -80, deltaAngleZ: 0)));
-			*/
 		}
 
 		protected override void OnUpdate(float timeStep)
 		{
-			// Move clouds via CloudsOffset (defined in the material.xml and used in the PS)
 			cloudsOffset += 0.00005f;
 			sunMaterial.SetShaderParameter("CloudsOffset", new Vector2(cloudsOffset, 0));
 		}
@@ -126,7 +103,7 @@ namespace SolarSystem
 
 		public override void OnGestureTapped()
 		{
-			//Nouvelle planete via classe
+			/* Bout de code de test
 			Node test;
 
 			test = Scene.CreateChild();
@@ -141,27 +118,8 @@ namespace SolarSystem
 
 
 			base.OnGestureTapped();
+			*/
 		}
 	}
 }
 
-/*
-mercuryNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
-venusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: 82, deltaAngleZ: 0)));
-earthNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -406, deltaAngleZ: 0)));
-marsNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -394, deltaAngleZ: 0)));
-jupiterNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1098, deltaAngleZ: 0)));
-saturnNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -1014, deltaAngleZ: 0)));
-uranusNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: -676, deltaAngleY: 80, deltaAngleZ: 0)));
-neptuneNode.RunActions(new RepeatForever(new RotateBy(duration: 10f, deltaAngleX: 0, deltaAngleY: -648, deltaAngleZ: 0)));
-
-
-baseMercury.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -920, deltaAngleZ: 0)));
-baseVenus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -280, deltaAngleZ: 0)));
-baseEarth.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -160, deltaAngleZ: 0)));
-baseMars.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: -48, deltaAngleZ: 0)));
-baseJupiter.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 60, deltaAngleZ: 0)));
-baseSaturn.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 72, deltaAngleZ: 0)));
-baseUranus.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 77, deltaAngleZ: 0)));
-baseNeptune.RunActions(new RepeatForever(new RotateBy(duration: 20f, deltaAngleX: 0, deltaAngleY: 79, deltaAngleZ: 0)));
-*/
